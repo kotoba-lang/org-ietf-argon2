@@ -1,0 +1,23 @@
+#!/usr/bin/env nbb
+;; Run the suite on the ClojureScript side.
+;;
+;; Not a formality. Every 64-bit operation in `argon2.u32` is a different
+;; instruction sequence here: the JVM's `int-array` is signed and needs a
+;; mask on read, JavaScript's `Uint32Array` does not; JavaScript's shift
+;; count is taken mod 32 so `<< 32` is silently `<< 0`; and `mul32` exists
+;; entirely because a 32x32 product is exact in neither a JavaScript number
+;; nor a 32-bit operator.
+;;
+;;   nbb --classpath "$(clojure -A:cljs -Spath)" scripts/verify-cljs.cljs
+(ns verify-cljs
+  (:require [clojure.test :as t]
+            [argon2.core-test]))
+
+(defmethod t/report [:cljs.test/default :end-run-tests] [m]
+  (println)
+  (if (t/successful? m)
+    (println "all checks passed on the ClojureScript path")
+    (do (println "FAILED on the ClojureScript path")
+        (js/process.exit 1))))
+
+(t/run-tests 'argon2.core-test)
