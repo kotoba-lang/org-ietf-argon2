@@ -14,7 +14,7 @@
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
-                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}}
          :main-opts ["-m" "cognitect.test-runner"]
          :exec-fn cognitect.test-runner.api/test}
   ;; classpath only, no :main-opts -- `clojure -A:cljs -Spath` resolves deps
@@ -28,7 +28,7 @@
   :oracle {:extra-paths ["test" "oracle"]
            :extra-deps {org.bouncycastle/bcprov-jdk18on {:mvn/version "1.78.1"}
                         io.github.cognitect-labs/test-runner
-                        {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                        {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}}
            ;; Both -d directories are named explicitly. The runner defaults to
            ;; `test` alone, so without this it exits 0 having never loaded the
            ;; differential suite -- a green that means "not run".
