@@ -77,9 +77,9 @@ the ClojureScript runner saw it.
 ## Verify
 
 ```sh
-clojure -M:test                                                        # JVM
-nbb --classpath "$(clojure -A:cljs -Spath)" scripts/verify-cljs.cljk   # ClojureScript
-clojure -M:oracle                                                      # + differential vs BouncyCastle
+kbb -M:test                                                        # JVM
+kbb --backend sci --classpath "$(kbb -A:cljs -Spath)" scripts/verify-cljs.cljk   # ClojureScript
+kbb -M:oracle                                                      # + differential vs BouncyCastle
 ```
 
 Three layers, and each answers something the others cannot.
@@ -92,7 +92,7 @@ vectors do not. **All five were reproduced with BouncyCastle 1.78.1 before
 this implementation was written**, so the oracle existed before the code did
 rather than being fitted to it.
 
-**Differential.** `clojure -M:oracle` runs 150 comparisons against
+**Differential.** `kbb -M:oracle` runs 150 comparisons against
 BouncyCastle across three variants, nine parameter sets and five tag lengths,
 with secrets and associated data varied. Five vectors pin three variants at
 two parameter sets; that leaves untested exactly where Argon2's indexing

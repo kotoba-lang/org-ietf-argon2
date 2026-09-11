@@ -1,4 +1,4 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; Measure, so the README can carry a number instead of a hope.
 ;;
 ;; Best of three, because this workstation runs many agents at once and a
@@ -6,7 +6,7 @@
 ;; load average beside the numbers: a timing without one is not a
 ;; measurement, it is an anecdote.
 ;;
-;;   nbb --classpath "$(clojure -A:cljs -Spath)" scripts/bench.cljk
+;;   kbb --backend sci --classpath "$(kbb -A:cljs -Spath)" scripts/bench.cljk
 (ns bench
   (:require [argon2.core :as a]
             ["node:os" :as os]))
