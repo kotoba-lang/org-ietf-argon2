@@ -8,7 +8,7 @@
 ;; entirely because a 32x32 product is exact in neither a JavaScript number
 ;; nor a 32-bit operator.
 ;;
-;;   nbb --classpath "$(clojure -A:cljs -Spath)" scripts/verify-cljs.cljs
+;;   nbb --classpath "$(clojure -A:cljs -Spath)" scripts/verify-cljs.cljk
 (ns verify-cljs
   (:require [clojure.test :as t]
             [argon2.core-test]))

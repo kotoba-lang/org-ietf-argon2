@@ -6,7 +6,7 @@
 ;; load average beside the numbers: a timing without one is not a
 ;; measurement, it is an anecdote.
 ;;
-;;   nbb --classpath "$(clojure -A:cljs -Spath)" scripts/bench.cljs
+;;   nbb --classpath "$(clojure -A:cljs -Spath)" scripts/bench.cljk
 (ns bench
   (:require [argon2.core :as a]
             ["node:os" :as os]))
