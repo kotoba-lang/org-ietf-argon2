@@ -8,7 +8,11 @@
 ;; because the BigInt representation that suits BLAKE2b's inputs would make a
 ;; memory-hard function unusable on the ClojureScript side.
 {:paths ["src"]
- :deps {io.github.kotoba-lang/org-ietf-blake2
+ :deps {
+        ;; kotoba.test (clojure.test-compatible surface), not clojure.test --
+        ;; scripts/migrate-clojure-test-to-kotoba-test.cljk. Explicit floor.
+        io.github.kotoba-lang/test {:git/url "https://github.com/kotoba-lang/test.git"
+                                    :git/sha "2ab4885f99fd25552d380d0f6b0b54c5a72eb7ae"}io.github.kotoba-lang/org-ietf-blake2
         {:git/url "https://github.com/kotoba-lang/org-ietf-blake2.git"
          :git/sha "5785beab88167f8588c31c3f756573fecefa6076"}}
  :aliases
