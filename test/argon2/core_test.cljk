@@ -1,5 +1,5 @@
 (ns argon2.core-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [argon2.core :as a]
             [argon2.u32 :as u]
             [argon2.vectors :as v]))
